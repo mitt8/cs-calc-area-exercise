@@ -7,9 +7,9 @@ namespace cs_calc_area_exercise.Models
 {
     public class Glass
     {
-        //make private 
-        public readonly int width;
-        public readonly int length;
+        
+        private readonly int width;
+        private readonly int length;
 
         public readonly int area;
         public readonly string cRef;
