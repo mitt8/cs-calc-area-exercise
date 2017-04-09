@@ -14,11 +14,11 @@ namespace cs_calc_area_exercise.Models
         public cs_calc_area_exercise.Models.Glass glass;
 
         public string SelectedFracWidth { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Inch value is required ")]
         public int SelectedInchWidth { get; set; }
 
         public string SelectedFracLength { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Inch value is required ")]
         public int SelectedInchLength { get; set; }
 
 
