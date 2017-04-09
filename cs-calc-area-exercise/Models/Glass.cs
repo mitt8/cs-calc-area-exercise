@@ -92,19 +92,6 @@ namespace cs_calc_area_exercise.Models
             }
          }
 
-        //Greatest common divider calculation for given two integers
-        private int GCDRecursive(int a, int b)
-        {
-            if (a == 0)
-                return b;
-            if (b == 0)
-                return a;
-
-            if (a > b)
-                return GCDRecursive(a % b, b);
-            else
-                return GCDRecursive(a, b % a);
-        }
 
     }
 
