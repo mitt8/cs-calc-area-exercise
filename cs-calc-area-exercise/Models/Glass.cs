@@ -5,6 +5,7 @@ using System.Web;
 
 namespace cs_calc_area_exercise.Models
 {
+    
     public class Glass
     {
         
@@ -15,7 +16,8 @@ namespace cs_calc_area_exercise.Models
         public readonly string cRef;
         public int Id { get; set; }
 
-
+        //Glass consturctor takes 4 variables, inch(integer) and fraction(string) for both width and length
+        //fraction variable format should match with Dimension class's frac List ex: 1/2, 3/4 etc.
         public Glass(int wI, string wF, int lI, string lF)
         {
             double wFrac = ConvertFractionToDouble(wF);
@@ -29,7 +31,7 @@ namespace cs_calc_area_exercise.Models
             cRef = CalcRef(wI, wFrac, lI, lFrac);
         }
 
-
+        // Returns passed fraction string's double value
         private double ConvertFractionToDouble(string frac)
         {
             if (frac.Contains('/'))
@@ -43,17 +45,21 @@ namespace cs_calc_area_exercise.Models
        
 
 
-        //Rounds up given (int)inch and (double)fraction values to nearest integer
+        //Rounds up given (int)inch and (double)fraction values to even integer
         private int RoundDimension(int inch, double frac){
             if (frac != 0){
-                return inch += (inch & 1);
+                inch++;
+            }
+            if (inch % 2 == 0){
+                    return inch;
             }
             else{
-                return inch;
-            }
+                    return RoundDimension(inch+1, 0);
+                }
         }
 
-
+        //Calculates area for given width and length integer
+        // min returned area is 3sq. ft per requirement
         private int CalcArea(int w, int l)
         {
             if ((int)Math.Ceiling((double)(w * l) / 144) > 3) {
@@ -64,24 +70,27 @@ namespace cs_calc_area_exercise.Models
             }
         }
 
-        private string ConvertFractionToString(double frac)
-        {
-            return frac.ToString();
-
-        }
-
+        
+        //Circumreference calculation for given inch(integer) and fraction(double) values for both width and length
+        //returns 
         private string CalcRef(int wI, double wF, int lI, double lF)
         {
+            //raw circumreference value 
             double cRef = ((wI + wF) + (lI + lF)) * 2;
 
+            //if the result has fraction part we need to convert it to string representation 
             if ((cRef - Math.Truncate(cRef)) != 0)
             {
+               
                 string cRefString = (cRef - Math.Truncate(cRef)).ToString();
+                
                 int length = (cRefString.Substring(cRefString.IndexOf(".")).Length - 1);
 
                 string[] subString = cRefString.Split('.');
-
+                
+                
                 int a = Convert.ToInt32(subString[1]);
+
                 int b = (int)Math.Pow(10, (double)length);
 
                 int gcd = GCDRecursive(a, b);
@@ -95,6 +104,7 @@ namespace cs_calc_area_exercise.Models
             }
          }
 
+        //Greatest common divider calculation for given two integers
         private int GCDRecursive(int a, int b)
         {
             if (a == 0)

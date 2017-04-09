@@ -5,20 +5,23 @@ using System.Web;
 
 namespace cs_calc_area_exercise.Models
 {
+
     public class Dimension
     {
+        
         public readonly List<int> inch;
         public readonly List<string> frac;
 
 
-
+        //cunstructor generates inch and frac lists
         public Dimension()
         {
-           
+            //Inch options are limited from 3 to 120 per requirement
             inch = setInchValues(3,120);
             frac = setFrachValues();
         }
 
+        //inch options takes two integers for lower and upper limit
         private List<int> setInchValues(int lowerLimit,int upperLimit)
         {
             List<int> values = new List<int>();
@@ -29,6 +32,8 @@ namespace cs_calc_area_exercise.Models
             return values;
 
         }
+
+        //fraction options
         private List<string> setFrachValues()
         {
             List<string> values = new List<string>();
