@@ -19,9 +19,11 @@ namespace cs_calc_area_exercise.Controllers
             return View(viewModel);
         }
 
+        // Submit form action
         [HttpPost]
         public ActionResult Index(AreaCalcViewModel viewModel)
         {
+            //if the required fields are missing
             if (!ModelState.IsValid)
             {
                 return View(viewModel);
@@ -31,9 +33,9 @@ namespace cs_calc_area_exercise.Controllers
             {
                 ModelState.Clear();
             }
-
+            //create glass object for selected dimensions
             viewModel.glass = new Glass(viewModel.SelectedInchWidth, viewModel.SelectedFracWidth, viewModel.SelectedInchLength, viewModel.SelectedFracLength);
-           
+            //redirect result view
             return PartialView("Result",viewModel.glass);
         }
     }

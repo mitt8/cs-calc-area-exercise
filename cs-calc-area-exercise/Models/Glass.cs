@@ -5,7 +5,8 @@ using System.Web;
 
 namespace cs_calc_area_exercise.Models
 {
-    
+    //Glass class
+    //calculates area(integer) and circumference(string) values for given glass dimensions
     public class Glass
     {
         
@@ -14,9 +15,8 @@ namespace cs_calc_area_exercise.Models
 
         public readonly int area;
         public readonly string cRef;
-        public int Id { get; set; }
 
-        //Glass consturctor takes 4 variables, inch(integer) and fraction(string) for both width and length
+        //Glass consturctor takes 4 arguments, inch(integer) and fraction(string) for both width and length
         //fraction variable format should match with Dimension class's frac List ex: 1/2, 3/4 etc.
         public Glass(int wI, string wF, int lI, string lF)
         {

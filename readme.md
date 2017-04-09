@@ -1,4 +1,4 @@
-#Calculate Area
+Calculate Area
 ========
 
 C# MVC application that calculates the area and circumreference of a rectangle glass for given dimensions

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace cs_calc_area_exercise.Models
 {
     //Model for Home Index view
-    // stores glass object and Dimension model for dropdownlist values
+    //includes a glass object and Dimension model for dropdownlist values
     public class AreaCalcViewModel
     {
         
@@ -23,7 +23,6 @@ namespace cs_calc_area_exercise.Models
         public string SelectedFracLength { get; set; }
         [Required(ErrorMessage = "Inch value is required ")]
         public int SelectedInchLength { get; set; }
-
 
 
 

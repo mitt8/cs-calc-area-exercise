@@ -5,13 +5,12 @@
 
 @model cs_calc_area_exercise.Models.Glass
 
-<div>
-    <p>Area (sq ft.)</p>
-    <h2>@Model.area</h2>
-    <p>Circumreference</p>
-    <h2>@Model.cRef</h2>
+<div class="jumbotron">
+    <p>Area : @Model.area sq. ft</p>
+    <p>Circumference : @Model.cRef</p>
+    @Html.ActionLink("New Calculation", "Index")
 </div>
 
 <div>
-    @Html.ActionLink("New Calculation", "Index")
+    
 </div>

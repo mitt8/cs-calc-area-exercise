@@ -5,7 +5,7 @@ using System.Web;
 
 namespace cs_calc_area_exercise.Models
 {
-
+    //calculates inch and fraction values for dropdownlist
     public class Dimension
     {
         
