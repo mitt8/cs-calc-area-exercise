@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model cs_calc_area_exercise.Models.AreaCalcViewModel
+          
+
+
+
+<div class="jumbotron">
+
+    
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <p>Width</p>
+        @Html.DropDownListFor(m => m.SelectedInchWidth, Model.InchValue, "--Inch value is required")
+        @Html.ValidationMessageFor(x => x.SelectedInchWidth)
+        @Html.DropDownListFor(m => m.SelectedFracWidth, Model.FracValue)
+
+
+        <p>Length</p>
+        @Html.DropDownListFor(m => m.SelectedInchLength, Model.InchValue, "--Inch value is required")
+        @Html.ValidationMessageFor(x => x.SelectedInchLength)
+        @Html.DropDownListFor(m => m.SelectedFracLength, Model.FracValue)
+   <br />
+  <input type="submit" value="Send" />   
+    }         
+
+
+   
+</div>
