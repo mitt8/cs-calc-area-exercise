@@ -17,7 +17,7 @@ namespace cs_calc_area_exercise.Models
         public readonly string cRef;
 
         //Glass consturctor takes 4 arguments, inch(integer) and fraction(string) for both width and length
-        //fraction variable format should match with Dimension class's frac List ex: 1/2, 3/4 etc.
+        //fraction variable format should match with Dimension class's frac List ex: 1/2, 1/8, 3/8 etc.
         public Glass(int wI, string wF, int lI, string lF)
         {
             double wFrac = ConvertFractionToDouble(wF);
@@ -29,6 +29,9 @@ namespace cs_calc_area_exercise.Models
 
             area = CalcArea(width, length);
             cRef = CalcRef(wI, wFrac, lI, lFrac);
+
+            
+
         }
 
         // Returns passed fraction string's double value
@@ -71,32 +74,17 @@ namespace cs_calc_area_exercise.Models
         }
 
         
-        //Circumreference calculation for given inch(integer) and fraction(double) values for both width and length
+        //Circumference calculation for given inch(integer) and fraction(double) values for both width and length
         //returns 
         private string CalcRef(int wI, double wF, int lI, double lF)
         {
-            //raw circumreference value 
+            //raw circumference value 
             double cRef = ((wI + wF) + (lI + lF)) * 2;
 
             //if the result has fraction part we need to convert it to string representation 
             if ((cRef - Math.Truncate(cRef)) != 0)
             {
-               
-                string cRefString = (cRef - Math.Truncate(cRef)).ToString();
-                
-                int length = (cRefString.Substring(cRefString.IndexOf(".")).Length - 1);
-
-                string[] subString = cRefString.Split('.');
-                
-                
-                int a = Convert.ToInt32(subString[1]);
-
-                int b = (int)Math.Pow(10, (double)length);
-
-                int gcd = GCDRecursive(a, b);
-
-                return Math.Truncate(cRef).ToString() + " " + (a / gcd).ToString() + "/" + (b / gcd).ToString() + "\"";
-
+                return Math.Truncate(cRef).ToString() + " " + Dimension.convertFractionDoubleToString(cRef - Math.Truncate(cRef)) + "\"";
             }
             else
             {

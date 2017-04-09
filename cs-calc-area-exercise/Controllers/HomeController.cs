@@ -35,7 +35,7 @@ namespace cs_calc_area_exercise.Controllers
             }
             //create glass object for selected dimensions
             viewModel.glass = new Glass(viewModel.SelectedInchWidth, viewModel.SelectedFracWidth, viewModel.SelectedInchLength, viewModel.SelectedFracLength);
-            //redirect result view
+            //redirect to result view
             return PartialView("Result",viewModel.glass);
         }
     }
