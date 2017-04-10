@@ -3,6 +3,8 @@ Calculate Area
 
 C# MVC application that calculates the area and circumreference of a rectangle glass for given dimensions
 
+## Prerequisites
+.NET 4.5
 
 ## Usage
 
